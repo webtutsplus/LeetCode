@@ -7,6 +7,8 @@ public class LC309 {
         return getMaxProfit(prices, 0, 1, memo);
     }
 
+    //[1,2,3,0,2] k =3 ;
+
     int getMaxProfit(int[] prices, int bIdx, int sIdx, int[][] memo){
 
         //This is the base case for our solution
@@ -17,6 +19,9 @@ public class LC309 {
 
         //So if the price of sIdx(sellingIndex) is greater than that of bIdex (buyingIndex) , we can make profit.
 
+     //    buyIndex = 0 ; sellIndex = 1 , need one day of cooldown
+        // day 2 , buyIndex = 3 , sellIndex = 3+1 = 4
+        //1,2,3,0,2
         if(prices[sIdx] > prices[bIdx]) {
             //This is the profit we get when we sell that item today . prices[sIdx] - prices[bIdx] -> is the profit for selling that item .
             //Now we have to call the getMaxProfit with sIdx+2 as buyIndex bcz buying is possible after 2  days. (we can not buy another item )
